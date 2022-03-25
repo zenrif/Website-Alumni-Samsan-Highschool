@@ -1,0 +1,14 @@
+@media (min-width: 320px) {
+    .ukuran-font {
+        font-size: 20px;
+    }
+
+    .posisi-text {
+    }
+}
+
+@media (min-width: 768px) {
+    .ukuran-font {
+        font-size: 24px;
+    }
+}
