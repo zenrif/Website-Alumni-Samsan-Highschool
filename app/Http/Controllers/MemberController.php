@@ -87,6 +87,5 @@ class MemberController extends Controller
      */
     public function destroy(User $user)
     {
-        $this->authorize('super_admin');
     }
 }

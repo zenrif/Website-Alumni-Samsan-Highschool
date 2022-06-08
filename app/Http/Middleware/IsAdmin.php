@@ -16,7 +16,7 @@ class IsAdmin
      */
     public function handle(Request $request, Closure $next)
     {
-        // kalo pake auth()->guest() ga perlu ada ! sebelum auth
+        // jika pake auth()->guest() ga perlu ada ! sebelum auth
         if (!auth()->check() || !auth()->user()->is_admin) {
             abort(403);
         }

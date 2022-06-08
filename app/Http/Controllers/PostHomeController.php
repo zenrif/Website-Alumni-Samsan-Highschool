@@ -17,7 +17,6 @@ class PostHomeController extends Controller
         // dd(request('search'));
         return view('post.index', [
             "posts" => Post::latest()->filter(request(['search']))->paginate(7)->withQueryString()
-            // "posts" => Post::latest()->filter(request(['search']))->get()
         ]);
     }
 
@@ -50,10 +49,7 @@ class PostHomeController extends Controller
      */
     public function show($slug)
     {
-        // dd($slug);
         return view('post.show', [
-            //first() mengembalikan catatan pertama yang ditemukan dalam database. Jika tidak ada model yang cocok, itu mengembalikan null.
-            // firstOrFail() mengembalikan catatan pertama yang ditemukan dalam database. Jika tidak ada model yang cocok, itu melempar kesalahan1.
             "post" => Post::with('author')->where('slug', $slug)->firstOrFail()
         ]);
     }

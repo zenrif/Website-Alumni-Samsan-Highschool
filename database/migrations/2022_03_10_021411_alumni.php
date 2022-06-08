@@ -14,12 +14,9 @@ class Alumni extends Migration
     public function up()
     {
         Schema::create('alumni', function (Blueprint $table) {
-            $table->bigInteger('no_induk')->primary();
+            $table->id();
             $table->string('nama');
-            $table->string('kota');
             $table->date('tgl_lahir');
-            $table->string('jk');
-            $table->string('jurusan');
         });
     }
 

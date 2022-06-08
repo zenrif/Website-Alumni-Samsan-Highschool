@@ -11,14 +11,12 @@
             <div class="carousel-inner" role="listbox">
 
                 <!-- Slide 1 -->
-                <div class="carousel-item active" style="background-image: url('/assets/img/slide/slide-1.jpg');">
+                <div class="carousel-item active" style="background-image: url('/img/banner.png');">
                     <div class="carousel-container">
                         <div class="carousel-content container">
-                            <h2 class="animate__animated animate__fadeInDown">Welcome to <span>Alumni</span></h2>
-                            <p class="animate__animated animate__fadeInUp">Ut velit est quam dolor ad a aliquid qui
-                                aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem
-                                mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti
-                                vel. Minus et tempore modi architecto.</p>
+                            <h2 class="animate__animated animate__fadeInDown">Selamat <span>Datang!</span></h2>
+                            <p class="animate__animated animate__fadeInUp">Website Samsan High school merupakan website
+                                sistem informasi akademik yang menghubungkan alumni Samsan High....</p>
                             <a href="/about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Read
                                 More</a>
                         </div>
@@ -27,7 +25,7 @@
                 {{-- Mengecek apakah ada postingan atau tidak --}}
                 @if($last_post)
                 <!-- Slide 2 -->
-                <div class="carousel-item" style="background-image: url('/img/artikel.webp');">
+                <div class="carousel-item" style="background-image: url('/post-images/{{ $last_post->image }}');">
                     <div class="carousel-container">
                         <div class="carousel-content container">
                             <h2 class="animate__animated animate__fadeInDown">{{ $last_post->title }}</h2>
@@ -39,21 +37,6 @@
                     </div>
                 </div>
                 @endif
-
-                <!-- Slide 3 -->
-                <div class="carousel-item" style="background-image: url('/img/hbd.webp');">
-                    <div class="carousel-container">
-                        <div class="carousel-content container">
-                            <h2 class="animate__animated animate__fadeInDown">Happy Birthday</h2>
-                            <p class="animate__animated animate__fadeInUp">Ut velit est quam dolor ad a aliquid qui
-                                aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem
-                                mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti
-                                vel. Minus et tempore modi architecto.</p>
-                            <a href="#hbd" class="btn-get-started animate__animated animate__fadeInUp scrollto">Read
-                                More</a>
-                        </div>
-                    </div>
-                </div>
 
             </div>
 
@@ -88,7 +71,7 @@
                             </g>
                         </g>
                     </svg>
-                    <span data-purecounter-start="0" data-purecounter-end="511" data-purecounter-duration="1"
+                    <span data-purecounter-start="0" data-purecounter-end="978" data-purecounter-duration="1"
                         class="purecounter"></span>
                     <p style="font-size: 30px; font-weight: bold">Alumni</p>
                 </div>

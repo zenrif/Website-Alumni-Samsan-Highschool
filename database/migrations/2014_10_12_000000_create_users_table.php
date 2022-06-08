@@ -24,7 +24,6 @@ class CreateUsersTable extends Migration
             $table->string('nomor_telepon');
             $table->string('akun_ig');
             $table->string('is_admin')->default(false);
-            $table->string('is_super_admin')->default(false);
             $table->rememberToken();
             $table->timestamps();
         });

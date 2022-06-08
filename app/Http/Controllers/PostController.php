@@ -44,7 +44,6 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request->all());
         $validatedData = $request->validate([
             'title' => 'required|max:255',
             'image' => 'image|file|max:2048',
@@ -54,20 +53,14 @@ class PostController extends Controller
         if ($image = $request->file('image')) {
             $destinationPath = 'post-images/';
             $postImg = date('YmdHis') . auth()->user()->id . "." . $image->getClientOriginalExtension();
-            // $postImg = strtotime($this->now()) . "." . $image->getClientOriginalExtension();
             $image->move($destinationPath, $postImg);
             $validatedData['image'] = "$postImg";
         }
-        // if ($request->file('image')) {
-        //     $validatedData['image'] = $request->file('image')->store('post-images');
-        // }
 
         $validatedData['user_id'] = auth()->user()->id;
-        // $validatedData['slug'] = Str::slug($request->title);
         $validatedData['slug'] = SlugService::createSlug(Post::class, 'slug', $request->title);
         $validatedData['excerpt'] = Str::limit(strip_tags($request->body), 200);
 
-        // dd($validatedData);
         Post::create($validatedData);
 
         return redirect('/dashboard/myarticle')->with('success', 'Berhasil mengunggah artikel baru!');

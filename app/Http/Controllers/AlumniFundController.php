@@ -18,7 +18,6 @@ class AlumniFundController extends Controller
     public function index()
     {
         $saldo = Saldo::latest('saldo')->first();
-        // dd($saldo);
         return view('dashboard.dana-alumni.index', [
             'navbar' => 'Dana Alumni',
             'funds' => AlumniFund::all(),
@@ -48,9 +47,8 @@ class AlumniFundController extends Controller
     {
         // dd($request->all());
         $saldo_terakhir = Saldo::latest('saldo')->first();
-        // dd($saldo_terakhir);
         if ($saldo_terakhir == null) {
-            $saldo_terakhir = 0;
+            $saldo_terakhir['saldo'] = 0;
         }
         $validatedData = $request->validate([
             'tgl_transaksi' => 'required',
@@ -64,11 +62,11 @@ class AlumniFundController extends Controller
         if ($request->jenis_transaksi == 'pemasukan') {
             $validatedData['uang_masuk'] = $request->jumlah;
             $validatedData['uang_keluar'] = null;
-            $saldo['saldo'] = $saldo_terakhir + $request->jumlah;
+            $saldo['saldo'] = $saldo_terakhir['saldo'] + $request->jumlah;
         } else {
             $validatedData['uang_keluar'] = $request->jumlah;
             $validatedData['uang_masuk'] = null;
-            $saldo['saldo'] = $saldo_terakhir - $request->jumlah;
+            $saldo['saldo'] = $saldo_terakhir['saldo'] - $request->jumlah;
         }
 
         $validatedData['user_id'] = auth()->user()->id;
@@ -140,7 +138,7 @@ class AlumniFundController extends Controller
         $saldo_terakhir = Saldo::latest('saldo')->first();
         // dd($saldo_terakhir);
         if ($saldo_terakhir == null) {
-            $saldo_terakhir = 0;
+            $saldo_terakhir['saldo'] = 0;
         }
         $validatedData = $request->validate([
             'tgl_transaksi' => 'required',
@@ -153,17 +151,17 @@ class AlumniFundController extends Controller
             $validatedData['uang_masuk'] = $request->jumlah;
             $validatedData['uang_keluar'] = null;
             if ($request->oldPemasukan == null) {
-                $saldo['saldo'] = $saldo_terakhir->saldo + $request->oldPengeluaran + $request->jumlah;
+                $saldo['saldo'] = $saldo_terakhir['saldo'] + $request->oldPengeluaran + $request->jumlah;
             } else {
-                $saldo['saldo'] = $saldo_terakhir->saldo + $request->jumlah - $request->oldPemasukan;
+                $saldo['saldo'] = $saldo_terakhir['saldo'] + $request->jumlah - $request->oldPemasukan;
             }
         } else {
             $validatedData['uang_keluar'] = $request->jumlah;
             $validatedData['uang_masuk'] = null;
             if ($request->oldPengeluaran == null) {
-                $saldo['saldo'] = $saldo_terakhir->saldo - $request->oldPemasukan - $request->jumlah;
+                $saldo['saldo'] = $saldo_terakhir['saldo'] - $request->oldPemasukan - $request->jumlah;
             } else {
-                $saldo['saldo'] = $saldo_terakhir->saldo - $request->jumlah + $request->oldPengeluaran;
+                $saldo['saldo'] = $saldo_terakhir['saldo'] - $request->jumlah + $request->oldPengeluaran;
             };
         }
 

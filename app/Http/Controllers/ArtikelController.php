@@ -13,15 +13,10 @@ class ArtikelController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    // public function __construct()
-    // {
-    //     $this->authorize('admin');
-    // }
 
     public function index()
     {
         $this->authorize('admin');
-        // dd(Post::with('author')->get());
         return view('dashboard.artikel.index', [
             'navbar' => 'Artikel',
             'posts' => Post::with('author')->get(),
@@ -57,7 +52,6 @@ class ArtikelController extends Controller
      */
     public function show($slug)
     {
-        // dd($slug);
         $this->authorize('admin');
         return view('dashboard.artikel.show', [
             'navbar' => 'Artikel',

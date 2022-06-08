@@ -18,7 +18,7 @@
     <table id="data_fund" class="table table-striped" style="width:100%">
         <thead>
             <tr>
-                <th style="width:10px;">No</th>
+                <th>No</th>
                 <th>Tanggal</th>
                 <th style="text-align:center;">Uang Masuk</th>
                 <th style="text-align:center;">Uang Keluar</th>
@@ -28,7 +28,7 @@
         <tbody>
             @foreach ($funds as $fund)
             <tr>
-                <td style="width:10px;">{{ $loop->iteration }}</td>
+                <td style="width:10px; text-align:center;">{{ $loop->iteration }}</td>
                 <td>{{ $fund->tgl_transaksi }}</td>
                 <td style="text-align:center;">Rp{{ isset($fund->uang_masuk)? number_format($fund->uang_masuk, 0, '
                     ',
@@ -61,7 +61,7 @@
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">Ingin Berdonasi?</h5>
-                        <a class="card-subtitle mb-2 text-muted" href="https://wa.wizard.id/f96b83" target="_blank">Klik
+                        <a class="card-subtitle mb-2 text-muted" href="https://wa.wizard.id/ea1140" target="_blank">Klik
                             Disini <img src="https://img.icons8.com/color/30/000000/whatsapp--v1.png" /></a>
                     </div>
                 </div>
@@ -71,7 +71,9 @@
 
     <script>
         $(document).ready(function() {
-                $('#data_fund').DataTable();
+                $('#data_fund').DataTable({
+                    responsive: true
+                });
             });
     </script>
 </div>

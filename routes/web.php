@@ -3,10 +3,8 @@
 use App\Models\Post;
 use App\Models\User;
 use App\Models\Alumni;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
-use App\Http\Controllers\AdminController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\MemberController;
 use App\Http\Controllers\ArtikelController;
@@ -28,29 +26,18 @@ use App\Http\Controllers\ForgotPasswordController;
 */
 
 Route::get('/', function () {
-    // $pecah = explode("-", Alumni::get('tgl_lahir'));
-    // $tgl_lahir = date('d-m', strtotime(Alumni::all('tgl_lahir')));
     // Mengecek tanggal lahir
     $tgl = now()->format('d');
     $bulan = now()->format('m');
-    // Mendapatkan data alumni yang ultah hari ini
-    $cek = Alumni::whereDay('tgl_lahir', $tgl)->whereMonth('tgl_lahir', $bulan)->get();
-    // dd($cek);
     return view('home', [
         'jumlah_members' => User::count('id'),
         'jumlah_artikel' => Post::count('id'),
-        // 'data_ultah' => Alumni::where('tgl_lahir', '2001-04-04')->get(),
         'data_ultah' => Alumni::whereDay('tgl_lahir', $tgl)->whereMonth('tgl_lahir', $bulan)->get(),
         'last_post' => Post::latest()->first(),
-        // DB::table('users')->whereDate($day);
-        // DB::table('users')->whereMonth($month);
-        // DB::table('users')->whereYear($year);
     ]);
 });
 
-Route::get('/home', function () {
-    return view('home');
-});
+Route::resource('/artikel', PostHomeController::class);
 
 Route::get('/about', function () {
     return view('about');
@@ -76,10 +63,6 @@ Route::resource('/dashboard/member', MemberController::class)->middleware('auth'
 Route::resource('/dashboard/myarticle', PostController::class)->middleware('auth');
 
 Route::resource('/dashboard/artikel', ArtikelController::class)->middleware('admin');
-
-Route::resource('/dashboard/admin', AdminController::class)->middleware('super_admin');
-
-Route::resource('/artikel', PostHomeController::class);
 
 // Route lupa password
 Route::get('forget-password', [ForgotPasswordController::class, 'showForgetPasswordForm'])->name('forget.password.get');

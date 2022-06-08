@@ -8,5 +8,4 @@ use Illuminate\Database\Eloquent\Model;
 class Alumni extends Model
 {
     use HasFactory;
-    // protected $guarded = ['nomor_induk'];
 }

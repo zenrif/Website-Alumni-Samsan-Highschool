@@ -19,9 +19,8 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link type="image/png" sizes="16x16" rel="icon"
-        href="https://img.icons8.com/color-glass/48/000000/graduation-cap.png">
-    <link href="https://img.icons8.com/color-glass/48/000000/graduation-cap.png" rel="apple-touch-icon">
+    <link type="image/png" sizes="16x16" rel="icon" href="/img/logo.png">
+    <link href="/img/logo.png" rel="apple-touch-icon">
 
     <title>{{$title}}</title>
     <!--     Fonts and icons     -->

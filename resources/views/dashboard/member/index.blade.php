@@ -23,7 +23,7 @@
         <tbody>
             @foreach ($members as $member)
             <tr>
-                <td>{{ $loop->iteration }}</td>
+                <td style="width:10px; text-align:center;">{{ $loop->iteration }}</td>
                 <td>{{ $member->name }}</td>
                 @can('admin')
                 <td>{{ $member->email }}</td>
@@ -49,7 +49,9 @@
     </table>
     <script>
         $(document).ready(function() {
-                $('#data_member').DataTable();
+                $('#data_member').DataTable({
+                    responsive: true
+                });
             });
     </script>
 </div>

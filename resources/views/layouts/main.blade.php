@@ -6,13 +6,14 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
     <title>Website Alumni</title>
-    <meta content="" name="description">
-    <meta content="" name="keywords">
+    <meta
+        content="Website Samsan High school merupakan website sistem informasi akademik yang menghubungkan alumni Samsan High school satu sama lain."
+        name="description">
+    <meta content="alumni, website, samsan highschool" name="keywords">
 
     <!-- Favicons -->
-    <link type="image/png" sizes="16x16" rel="icon"
-        href="https://img.icons8.com/color-glass/48/000000/graduation-cap.png">
-    <link href="https://img.icons8.com/color-glass/48/000000/graduation-cap.png" rel="apple-touch-icon">
+    <link type="image/png" sizes="16x16" rel="icon" href="/img/logo.png">
+    <link href="/img/logo.png" rel="apple-touch-icon">
 
     <!-- Google Fonts -->
     <link
@@ -25,9 +26,6 @@
     <link href="/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
     <link href="/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-    {{--
-    <link href="/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-    <link href="/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet"> --}}
 
     <!-- Template Main CSS File -->
     <link href="/assets/css/style.css" rel="stylesheet">

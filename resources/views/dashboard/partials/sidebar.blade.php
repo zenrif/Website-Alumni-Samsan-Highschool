@@ -3,10 +3,9 @@
     <div class="sidenav-header">
         <i class="fas fa-times p-3 cursor-pointer text-secondary opacity-5 position-absolute end-0 top-0 d-none d-xl-none"
             aria-hidden="true" id="iconSidenav"></i>
-        <a class="navbar-brand m-0" href="/" target="_blank">
-            <img src="https://img.icons8.com/color-glass/48/000000/graduation-cap.png" class="navbar-brand-img h-100"
-                alt="main_logo">
-            <span class="ms-1 font-weight-bold">Alumni</span>
+        <a class="navbar-brand m-0" href="/">
+            <img src="/img/logo.png" class="navbar-brand-img h-100" alt="main_logo">
+            <span class="ms-1 font-weight-bold">Samsan</span>
         </a>
     </div>
     <hr class="horizontal dark mt-0">
@@ -22,18 +21,6 @@
                     <span class="nav-link-text ms-1">Dashboard</span>
                 </a>
             </li>
-            @can('super_admin')
-            <li class="nav-item">
-                <a class="nav-link {{ Request::is('dashboard/admin*') ? 'active' : '' }}" href="/dashboard/admin">
-                    <div
-                        class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
-                        <img
-                            src="https://img.icons8.com/external-itim2101-lineal-itim2101/25/000000/external-admin-network-technology-itim2101-lineal-itim2101-1.png" />
-                    </div>
-                    <span class="nav-link-text ms-1">Admin</span>
-                </a>
-            </li>
-            @endcan
             <li class="nav-item">
                 <a class="nav-link {{ Request::is('dashboard/member*') ? 'active' : '' }}" href="/dashboard/member">
                     <div
